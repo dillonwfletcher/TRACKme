@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block script %}
+{% endblock %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h1>History</h1>
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                  <th scope="col">Location</th>
+                  <th scope="col">Nickname</th>
+                  <th scope="col">Tracked</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for place in history %}
+                <tr>
+                    <td>{{ place['location'] }}</td>
+                    {% if place['nickname'] %}
+                        <td>{{ place['nickname'] }}</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                    <td>{{ place['visited'] }}</td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
